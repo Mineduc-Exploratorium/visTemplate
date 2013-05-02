@@ -37,7 +37,7 @@ define([
 			// Carga de datos
 	    	this.vistaLoading = new VistaLoading({el:this.el});
 			this.vistaLoading.show();
-			d3.tsv("data/data.txt", function(data) {
+			d3.tsv(datafile, function(data) {
 				self.vistaLoading.hide();
 
 				self.data = data;
