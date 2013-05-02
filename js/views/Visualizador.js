@@ -1,3 +1,4 @@
+// template
 define([
 	'underscore',
 	'backbone',
@@ -25,7 +26,6 @@ define([
 		* Visualizador Inicia parametros de configuración y llamada a datos
 		*/
 		initialize: function() {
-			this.svg = this.options && this.options.svg ? this.options.svg : document.createElementNS('http://www.w3.org/2000/svg', "g");
 			this.data = this.options && this.options.data ? this.options.data : [];
 
 			// Binding de this (esta vista) al contexto de las funciones indicadas
@@ -42,14 +42,13 @@ define([
 	   		this.color = d3.scale.category20c();
 
 			// Vista con tooltip para mostrar datos del item respectivo
-			//this.tooltip = new VistaToolTip();
 			this.tooltip = new VistaToolTip();
 			this.tooltip.message = this.tootipMessage;
 
 			this.color = d3.scale.category20();
 
 			// append the svg canvas to the page
-			this.svg
+			this.svg = d3.select(this.el)
 			    .attr("width", this.width + this.margin.left + this.margin.right)
 			    .attr("height", this.height + this.margin.top + this.margin.bottom)
 			  .append("g")
